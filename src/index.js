@@ -36,7 +36,7 @@ console.log(result) */
  console.log(result)
 //constructor
  console.log(new Number(66)) */
-
+/* 
  const literalNumber=99
 
  console.log(literalNumber)
@@ -78,10 +78,10 @@ console.log(Number.prototype)
 console.log((99.12345678).toFixed(2))
 console.log((99.12345678).toPrecision(4))
 console.log(new Number(99).valueOf())
+ */
 
-
-
-
+console.log(String(55+11))
+console.log(String({name: 'Pizza'}))
 
 
 
