@@ -1,5 +1,7 @@
 import '../assets/css/style.css';
 
+//import { arguments, arguments } from 'file-loader';
+
 const app = document.getElementById('app');
 app.innerHTML = '<h1>JavaScript Basics</h1>';
 
@@ -80,8 +82,69 @@ console.log((99.12345678).toPrecision(4))
 console.log(new Number(99).valueOf())
  */
 
-console.log(String(55+11))
+/* console.log(String(55+11))
 console.log(String({name: 'Pizza'}))
 
+console.log(JSON.stringify({name: 'Pizza'}))
 
+console.log(new String(5599).length)
+const pizza='Pepperoni'
+console.log(pizza[1],pizza.length - 1)
+
+const imutable = 'I shall not change'
+console.log(imutable.toUpperCase())
+console.log(typeof pizza)
+console.log(pizza instanceof String)
+
+console.log(String('Pepperoni') instanceof String)
+console.log(new String('Pepperoni') instanceof String)
+console.log(String.prototype)
+console.log(pizza.indexOf('p'))
+if(pizza.indexOf('p') !== -1){
+    console.log('Not last letter')
+}
+console.log(pizza.replace('oni','fire'))
+console.log(pizza.slice(0,1))
+console.log(pizza.slice(0,1))
+console.log(pizza.split('e')[1])
+console.log('   4444 5555 6666 777   '.trim().replace(/\s/g))
+
+ */
+// Function Decoration
+
+function makeCar(name=''){
+   // name = name || ''
+console.log(`Making Car... ${name.toUpperCase()}`)
+}
+makeCar("Ferrari")
+makeCar()
+
+
+// Function xpresion
+
+const makeCarExpression = function myFunction(){
+    console.log(makeCarExpression.name)
+}
+makeCarExpression()
+
+// Arrow Function
+
+const makeCarArrow = ()=> console.log('Making Car inside Arrow')
+makeCarArrow()
+
+// rest parametor Function
+function makeCarPrice(){
+    console.log(arguments,Array.isArray(arguments))
+    Array.from(arguments).forEach(value =>console.log(value))
+    const total=Array.from(arguments).reduce((prev,next)=>{return prev + next})
+    console.log(`Total ${total}`)
+}
+makeCarPrice(11,44,55,99,22)
+
+function makeCarPriceRest(...params){
+    console.log(Array.isArray(params))
+    const total=Array.from(arguments).reduce((prev,next)=>{return prev + next})
+    console.log(`Total ${total}`)
+}
+makeCarPriceRest(11,44,55,99,22)
 
