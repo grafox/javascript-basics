@@ -111,7 +111,7 @@ console.log('   4444 5555 6666 777   '.trim().replace(/\s/g))
 
  */
 // Function Decoration
-
+/* 
 function makeCar(name=''){
    // name = name || ''
 console.log(`Making Car... ${name.toUpperCase()}`)
@@ -154,5 +154,83 @@ const makeCarPrice2 = (...params)=>{
     return total
 }
 makeCarPrice2(11,44,55,99,22)
+ */
+
+const drink = {
+    id:'001',
+    name:'Papce',
+    price:99,
+    getDrinkDetails(){
+        return `Drink ${this.name} (${this.price})`
+    },
+    'abc 123':'I am the value',
+    100:'I am a number'
+}
+//////
+const id ='001'
+const name ='Papce'
+const price = 99
+const someKey='name'
+
+const drink2 = {
+    id,
+    [someKey]:name,
+    price,
+    getDrinkDetails(){
+        return `Drink ${this.name} (${this.price})`
+    },
+    'abc 123':'I am the value',
+    100:'I am a number'
+}
 
 
+const drinkRefrence = drink
+drinkRefrence.name='Cola'
+
+console.log(drink)
+console.log(drink2)
+console.log(new Object() instanceof Object )
+console.log(Object() instanceof Object)
+///
+console.log(drink.getDrinkDetails())
+console.log(drink['abc 123'])
+console.log(drink['100'])
+
+
+const newDrink = {
+    id:'001',
+    name:'Papce',
+    price:{
+        sale:99,
+        full:129
+    }
+}
+
+const {sale,full} = newDrink.price
+console.log(sale,full)
+
+if(newDrink.id){
+    console.log(newDrink.id)
+}
+
+for(const prop in newDrink){
+    if(newDrink[prop] === 'Papce'){
+        console.log(newDrink[prop])
+    }
+}
+
+console.log(Object.values(newDrink).includes('Papce'))
+
+// property exists
+console.log(newDrink.hasOwnProperty('name'))
+console.log(Object.prototype.hasOwnProperty.call(newDrink,'name'))
+console.log(Object.keys(newDrink).includes('name'))
+
+newDrink.brand = 'My Drinks'
+newDrink.name = 'Peach'
+
+function propUpdate(prop,value){
+    newDrink[prop] = value
+}
+propUpdate('brabd','my Drink')
+console.log(newDrink)
