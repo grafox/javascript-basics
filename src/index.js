@@ -380,4 +380,27 @@ console.log([true,true,false].filter(Boolean))
 const expensivItems = drinkWithId.filter((value)=>{
     value.price <10
 })
-console.log(expensivItems)
+console.log(expensivItems);
+
+//drinkWithId.reduce((prev,next,index,array)=>{...},0)
+console.log([1,2,3,4,5].reduce((prev,next)=>prev+next)) // ecumelat
+console.log([1,2,3,4,5].reduce((prev,next)=>{
+    console.log(prev,next)
+    return prev+next
+}))
+console.log([1,2,3,4,5].reduce((prev,next)=>{
+    console.log(prev,next)
+    return prev+next
+},10))
+
+
+const reduced = drinkWithId
+.map((value)=> value.price)
+.reduce((prev,next)=> prev+next)
+ 
+console.log(reduced)
+
+// array of objects
+
+const reduced2 = drinkWithId.reduce((prev,next)=> prev+next.price,0)
+console.log(reduced2)
