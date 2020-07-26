@@ -155,7 +155,7 @@ const makeCarPrice2 = (...params)=>{
 }
 makeCarPrice2(11,44,55,99,22)
  */
-
+/* 
 const drink = {
     id:'001',
     name:'Papce',
@@ -254,4 +254,24 @@ const price2 ={
     ful:129
 } 
 const mergedDrink = {...newDrink,...{price2}}
-console.log(mergedDrink)
+console.log(mergedDrink) */
+
+const drinks = ['A','B','C']
+const drinkRefrance = drinks
+console.log(drinks === drinkRefrance)
+console.log(...drinks)
+console.log(drinks[2])
+console.log(drinks[drinks.length - 1])
+drinks['Favourite']='D' // Convert Array to Object
+console.log(drinks,typeof drinks)
+
+
+drinks.slice(0,drinks.length)
+console.log(drinks)
+
+const newDrinks = [['A',1],['B',2],['C',3]]
+console.log(newDrinks)
+console.log(`Drinks: ${newDrinks[1][0]},price ${newDrinks[1][1]}`) // multi damensional Array
+
+const [drinkOne,drinkTwo,...rest] = newDrinks
+console.log(drinkOne,drinkTwo,rest)
