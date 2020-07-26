@@ -304,9 +304,9 @@ const included = newDrinks.includes('Cola')
 console.log(included)
 
 const drinkWithId = [
-    {id:1, name:'lemon',price: 10},
-    {id:2, name:'lime' ,price: 11},
-    {id:3, name:'Peach',price: 12}
+    {id:1, name:'lemon',price: 10, promo:false},
+    {id:2, name:'lime' ,price: 11,promo:true},
+    {id:3, name:'Peach',price: 12,promo:false}
 ]
 
 /* const idIndex= drinkWithId.findIndex(value =>value.name === 'Peach')
@@ -404,3 +404,13 @@ console.log(reduced)
 
 const reduced2 = drinkWithId.reduce((prev,next)=> prev+next.price,0)
 console.log(reduced2)
+
+// some
+//const returnValue = drinkWithId.some((value,index,array)=>{...},thisArg)
+console.log([1,2,3].some(x=>x>1))
+
+const isInPromo = drinkWithId.some((value)=>value.promo)
+console.log(isInPromo)
+
+const total = isInPromo ? 33 : drinkWithId.reduce((prev,next)=> prev + next.price,0)
+console.log(total)
