@@ -309,7 +309,7 @@ const drinkWithId = [
     {id:3, name:'Peach',price: 12}
 ]
 
-const idIndex= drinkWithId.findIndex(value =>value.name === 'Peach')
+/* const idIndex= drinkWithId.findIndex(value =>value.name === 'Peach')
 console.log(drinkWithId[idIndex])
 
 const foundItem = drinkWithId.find(value =>value.name === 'Peach')
@@ -323,7 +323,7 @@ const drinksClone3 = JSON.parse(JSON.stringify(newDrinks)) // Deep Cloning
 console.log(drinksClone3)
 
 console.log(drinksClone[0][1] = 1000)
-console.log(newDrinks)
+console.log(newDrinks) */
 
 // Merg Arrays
 
@@ -361,3 +361,23 @@ drinkWithId.forEach((value)=>{
     `
 })
 
+//drinkWithId.map((value,index,array)=>{...})
+console.log([1,2,3,4,5].map((x) => x*2))
+
+ const halfPrice = drinkWithId.map((value)=>{
+    if(value.id === 1){
+        return {
+            ...value,price: value.price /2
+        }
+    }
+    return value
+})
+
+console.log(halfPrice)
+//drinkWithId.filter((value,index,array)=>{...})
+console.log([true,true,false].filter(Boolean))
+
+const expensivItems = drinkWithId.filter((value)=>{
+    value.price <10
+})
+console.log(expensivItems)
