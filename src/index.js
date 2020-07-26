@@ -232,5 +232,26 @@ newDrink.name = 'Peach'
 function propUpdate(prop,value){
     newDrink[prop] = value
 }
-propUpdate('brabd','my Drink')
+propUpdate('brand','my Drink')
 console.log(newDrink)
+
+//delete newDrink.id
+//newDrink.id=undefined
+
+//const drinkClone = Object.assign({},newDrink)
+//const drinkClone = {...newDrink}
+//drinkClone.id='abcd'
+const drinkStringified = JSON.stringify(newDrink)
+console.log(drinkStringified)
+const drinkClone = JSON.parse(drinkStringified)
+
+console.log(drinkClone)
+
+// merg Object
+
+const price2 ={
+    sale:100,
+    ful:129
+} 
+const mergedDrink = {...newDrink,...{price2}}
+console.log(mergedDrink)
