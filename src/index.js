@@ -275,3 +275,89 @@ console.log(`Drinks: ${newDrinks[1][0]},price ${newDrinks[1][1]}`) // multi dame
 
 const [drinkOne,drinkTwo,...rest] = newDrinks
 console.log(drinkOne,drinkTwo,rest)
+
+drinks.unshift('water') // mutable
+console.log(drinks)
+
+const newDrink = ['water',...drinks]
+console.log(newDrink)
+
+drinks.push('Cola')
+console.log(drinks)
+
+const index=1
+drinks.splice(index,0,'Cola')
+console.log(drinks)
+console.log([...drinks.splice(0,index),'lemon',...drinks.splice(index -1)])
+console.log(drinks)
+
+const removed = newDrink.shift()
+console.log(removed)
+const removed2 = newDrink.pop()
+console.log(removed2)
+
+const index2 = newDrink.indexOf('Cola')
+if(index2 !== -1){
+    console.log(newDrink[index2])
+}
+const included = newDrinks.includes('Cola')
+console.log(included)
+
+const drinkWithId = [
+    {id:1, name:'lemon',price: 10},
+    {id:2, name:'lime' ,price: 11},
+    {id:3, name:'Peach',price: 12}
+]
+
+const idIndex= drinkWithId.findIndex(value =>value.name === 'Peach')
+console.log(drinkWithId[idIndex])
+
+const foundItem = drinkWithId.find(value =>value.name === 'Peach')
+console.log(foundItem)
+
+console.log(newDrinks)
+const drinksClone = [...newDrinks]
+const drinksClone2 = Array.from(newDrinks)
+console.log(drinksClone2)
+const drinksClone3 = JSON.parse(JSON.stringify(newDrinks)) // Deep Cloning
+console.log(drinksClone3)
+
+console.log(drinksClone[0][1] = 1000)
+console.log(newDrinks)
+
+// Merg Arrays
+
+const merged = newDrink.concat(newDrinks)
+console.log(merged)
+const merged2 = [...newDrink,...newDrinks]
+console.log(merged2)
+const item =['Apple',89]
+const merged3 = [item,...newDrinks,item] // begin or end
+console.log(merged3)
+
+console.log(newDrinks.reverse())
+console.log(drinkWithId.sort((a,b)=> b.price - a.price))
+
+console.log(Array.isArray([]))
+console.log(Object.prototype.toString.call([]))
+
+//loop
+
+for(const drink of drinkWithId){
+    if(drink.name === 'lemon'){
+        console.log('Pour me a glass')
+        //continue
+        break
+    }
+}
+
+//drinkWithId.forEach((value,index,array)=>{...})
+drinkWithId.forEach((value)=>{
+    console.log(value.name)
+    app.innerHTML +=`
+    <li>
+    ${value.id} ${value.name} - ${(value.price/100).toFixed(2)} // fix the number
+    </li>
+    `
+})
+
