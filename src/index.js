@@ -276,141 +276,31 @@ console.log(`Drinks: ${newDrinks[1][0]},price ${newDrinks[1][1]}`) // multi dame
 const [drinkOne,drinkTwo,...rest] = newDrinks
 console.log(drinkOne,drinkTwo,rest)
 
+// unshift
 drinks.unshift('water') // mutable
 console.log(drinks)
 
 const newDrink = ['water',...drinks]
 console.log(newDrink)
-
+//push
 drinks.push('Cola')
 console.log(drinks)
-
+// splice
 const index=1
 drinks.splice(index,0,'Cola')
 console.log(drinks)
 console.log([...drinks.splice(0,index),'lemon',...drinks.splice(index -1)])
 console.log(drinks)
-
+//shift
 const removed = newDrink.shift()
 console.log(removed)
 const removed2 = newDrink.pop()
 console.log(removed2)
-
+// indexOf
 const index2 = newDrink.indexOf('Cola')
 if(index2 !== -1){
     console.log(newDrink[index2])
 }
+// includes
 const included = newDrinks.includes('Cola')
 console.log(included)
-
-const drinkWithId = [
-    {id:1, name:'lemon',price: 10, promo:false},
-    {id:2, name:'lime' ,price: 11,promo:true},
-    {id:3, name:'Peach',price: 12,promo:false}
-]
-
-/* const idIndex= drinkWithId.findIndex(value =>value.name === 'Peach')
-console.log(drinkWithId[idIndex])
-
-const foundItem = drinkWithId.find(value =>value.name === 'Peach')
-console.log(foundItem)
-
-console.log(newDrinks)
-const drinksClone = [...newDrinks]
-const drinksClone2 = Array.from(newDrinks)
-console.log(drinksClone2)
-const drinksClone3 = JSON.parse(JSON.stringify(newDrinks)) // Deep Cloning
-console.log(drinksClone3)
-
-console.log(drinksClone[0][1] = 1000)
-console.log(newDrinks) */
-
-// Merg Arrays
-
-const merged = newDrink.concat(newDrinks)
-console.log(merged)
-const merged2 = [...newDrink,...newDrinks]
-console.log(merged2)
-const item =['Apple',89]
-const merged3 = [item,...newDrinks,item] // begin or end
-console.log(merged3)
-
-console.log(newDrinks.reverse())
-console.log(drinkWithId.sort((a,b)=> b.price - a.price))
-
-console.log(Array.isArray([]))
-console.log(Object.prototype.toString.call([]))
-
-//loop
-
-for(const drink of drinkWithId){
-    if(drink.name === 'lemon'){
-        console.log('Pour me a glass')
-        //continue
-        break
-    }
-}
-
-//drinkWithId.forEach((value,index,array)=>{...})
-drinkWithId.forEach((value)=>{
-    console.log(value.name)
-    app.innerHTML +=`
-    <li>
-    ${value.id} ${value.name} - ${(value.price/100).toFixed(2)} // fix the number
-    </li>
-    `
-})
-
-//drinkWithId.map((value,index,array)=>{...})
-console.log([1,2,3,4,5].map((x) => x*2))
-
- const halfPrice = drinkWithId.map((value)=>{
-    if(value.id === 1){
-        return {
-            ...value,price: value.price /2
-        }
-    }
-    return value
-})
-
-console.log(halfPrice)
-//drinkWithId.filter((value,index,array)=>{...})
-console.log([true,true,false].filter(Boolean))
-
-const expensivItems = drinkWithId.filter((value)=>{
-    value.price <10
-})
-console.log(expensivItems);
-
-//drinkWithId.reduce((prev,next,index,array)=>{...},0)
-console.log([1,2,3,4,5].reduce((prev,next)=>prev+next)) // ecumelat
-console.log([1,2,3,4,5].reduce((prev,next)=>{
-    console.log(prev,next)
-    return prev+next
-}))
-console.log([1,2,3,4,5].reduce((prev,next)=>{
-    console.log(prev,next)
-    return prev+next
-},10))
-
-
-const reduced = drinkWithId
-.map((value)=> value.price)
-.reduce((prev,next)=> prev+next)
- 
-console.log(reduced)
-
-// array of objects
-
-const reduced2 = drinkWithId.reduce((prev,next)=> prev+next.price,0)
-console.log(reduced2)
-
-// some
-//const returnValue = drinkWithId.some((value,index,array)=>{...},thisArg)
-console.log([1,2,3].some(x=>x>1))
-
-const isInPromo = drinkWithId.some((value)=>value.promo)
-console.log(isInPromo)
-
-const total = isInPromo ? 33 : drinkWithId.reduce((prev,next)=> prev + next.price,0)
-console.log(total)
